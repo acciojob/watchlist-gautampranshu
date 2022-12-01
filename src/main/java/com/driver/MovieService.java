@@ -16,7 +16,7 @@ public class MovieService {
 //    {
 //        return movieRepository.theSize();
 //    }
-    void addMovieToDB(Movie m)
+    public void addMovieToDB(Movie m)
     {
         movieRepository.addMovieInDB(m);
     }
@@ -25,36 +25,36 @@ public class MovieService {
     {
         return movieRepository.getMovieByNameFromDB(x);
     }
-    void addDirectorToDB(Director d)
+    public void addDirectorToDB(Director d)
     {
         movieRepository.addDirectorInDB(d);
     }
 
-    Director getDirectorByNameFromService(String x)
+    public Director getDirectorByNameFromService(String x)
     {
         return movieRepository.getDirectorByNameFromDB(x);
     }
 
-    List<String> getAllMoviesFromRepo()
+    public List<String> getAllMoviesFromRepo()
     {
         return movieRepository.getAllMoviesFromDB();
     }
-    void pairToRepo(String d , String movie)
+    public void pairToRepo(String d , String movie)
     {
         movieRepository.pairToDB(d , movie);
     }
 
-    List<String> getMoviesByDirectorNameFromRepo(String d)
+    public List<String> getMoviesByDirectorNameFromRepo(String d)
     {
         return movieRepository.getMoviesByDirectorNameFromDB(d);
     }
 
-    void  deleteDirectorByNameFromRepo(String d)
+    public void  deleteDirectorByNameFromRepo(String d)
     {
         movieRepository.deleteDirectorByNameFromDB(d);
     }
 
-    void deleteAllDirectorsFromRepo()
+    public void deleteAllDirectorsFromRepo()
     {
         movieRepository.deleteAllDirectorsFromDB();
     }

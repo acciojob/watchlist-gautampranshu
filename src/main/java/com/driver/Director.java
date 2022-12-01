@@ -8,7 +8,7 @@ public class Director {
     private int numberOfMovies;
     private double imdbRating;
 
-    Director()
+    public Director()
     {
 
     }
