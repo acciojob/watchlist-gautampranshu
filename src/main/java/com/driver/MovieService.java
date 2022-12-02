@@ -18,44 +18,53 @@ public class MovieService {
 //    }
     public void addMovieToDB(Movie m)
     {
-        movieRepository.addMovieInDB(m);
+       // movieRepository.addMovieInDB(m);
+        movieRepository.saveMovie(m);
     }
 
     public Movie getMovieByNameFromService(String x)
     {
-        return movieRepository.getMovieByNameFromDB(x);
+        return movieRepository.findMovie(x);
+        //return movieRepository.getMovieByNameFromDB(x);
     }
     public void addDirectorToDB(Director d)
     {
-        movieRepository.addDirectorInDB(d);
+        movieRepository.saveDirector(d);
+//        movieRepository.addDirectorInDB(d);
     }
 
     public Director getDirectorByNameFromService(String x)
     {
-        return movieRepository.getDirectorByNameFromDB(x);
+        return movieRepository.findDirector(x);
+//        return movieRepository.getDirectorByNameFromDB(x);
     }
 
     public List<String> getAllMoviesFromRepo()
     {
-        return movieRepository.getAllMoviesFromDB();
+//        return movieRepository.getAllMoviesFromDB();
+        return movieRepository.findAllMovies();
     }
     public void pairToRepo(String d , String movie)
     {
-        movieRepository.pairToDB(d , movie);
+        movieRepository.saveMovieDirectorPair(d , movie);
+//        movieRepository.pairToDB(d , movie);
     }
 
     public List<String> getMoviesByDirectorNameFromRepo(String d)
     {
-        return movieRepository.getMoviesByDirectorNameFromDB(d);
+//        return movieRepository.getMoviesByDirectorNameFromDB(d);
+        return movieRepository.findMoviesFromDirector(d);
     }
 
     public void  deleteDirectorByNameFromRepo(String d)
     {
-        movieRepository.deleteDirectorByNameFromDB(d);
+        movieRepository.deleteDirector(d);
+//        movieRepository.deleteDirectorByNameFromDB(d);
     }
 
     public void deleteAllDirectorsFromRepo()
     {
-        movieRepository.deleteAllDirectorsFromDB();
+        movieRepository.deleteAllDirector();
+//        movieRepository.deleteAllDirectorsFromDB();
     }
 }
