@@ -48,13 +48,13 @@ public class MovieRepository {
             return hmDirector.get(x);
 //        return new Director();
     }
-    List<Movie> getAllMoviesFromDB()
+    List<String> getAllMoviesFromDB()
     {
-        List<Movie> ans = new ArrayList<>();
+        List<String> ans = new ArrayList<>();
         for(String str : hmMovie.keySet())
         {
-            ans.add(hmMovie.get(str));
-            //ans.add(str);
+            //ans.add(hmMovie.get(str));
+            ans.add(str);
         }
         return ans;
     }
