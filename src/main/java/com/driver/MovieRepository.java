@@ -66,7 +66,7 @@ public class MovieRepository {
     public List<String> getMoviesByDirectorNameFromDB(String d)
     {
         List<String> ans = new ArrayList<>();
-       if(hmUpdate.containsKey(d)) return hmUpdate.get(d);
+       if(hmUpdate.containsKey(d)) ans = hmUpdate.get(d);
        //return new ArrayList<>();
         return ans;
           //return hmUpdate.get(d);
@@ -74,33 +74,34 @@ public class MovieRepository {
 
     public void  deleteDirectorByNameFromDB(String d)
     {
-//        //List<String> res = new ArrayList<>();
-//        int size = 0;
-//        if(hmUpdate.containsKey(d)) size = hmUpdate.get(d).size();
-//        //System.out.println(size);
-//        for(int i = 0; i<size; i++)
-//        {
-//           if(hmMovie.containsKey(hmUpdate.get(d).get(i))) hmMovie.remove(hmUpdate.get(d).get(i));
-//            //res.add(hmUpdate.get(d).get(i)); // res me sari movies us director ki add ho gayi
-//            //System.out.print(ans.get(i) + " ");
+        //List<String> res = new ArrayList<>();
+        int size = 0;
+        if(hmUpdate.containsKey(d)) size = hmUpdate.get(d).size();
+        //System.out.println(size);
+        for(int i = 0; i<size; i++)
+        {
+           if(hmMovie.containsKey(hmUpdate.get(d).get(i))) hmMovie.remove(hmUpdate.get(d).get(i));
+            //res.add(hmUpdate.get(d).get(i)); // res me sari movies us director ki add ho gayi
+            //System.out.print(ans.get(i) + " ");
+        }
+       if(hmDirector.containsKey(d)) hmDirector.remove(d);
+       if(hmUpdate.containsKey(d)) hmUpdate.remove(d);
+
+//        List<String> res = new ArrayList<>();
+//        if(hmUpdate.containsKey(d)){
+//            res = hmUpdate.get(d);
+//            for(String movie: res){
+//                if(hmMovie.containsKey(movie)){
+//                    hmMovie.remove(movie);
+//                }
+//            }
+//
+//            hmUpdate.remove(d);
 //        }
-//       if(hmDirector.containsKey(d)) hmDirector.remove(d);
-//       if(hmUpdate.containsKey(d)) hmUpdate.remove(d);
-        List<String> res = new ArrayList<String>();
-        if(hmUpdate.containsKey(d)){
-            res = hmUpdate.get(d);
-            for(String movie: res){
-                if(hmMovie.containsKey(movie)){
-                    hmMovie.remove(movie);
-                }
-            }
-
-            hmUpdate.remove(d);
-        }
-
-        if(hmDirector.containsKey(d)){
-            hmDirector.remove(d);
-        }
+//
+//        if(hmDirector.containsKey(d)){
+//            hmDirector.remove(d);
+//        }
     }
 
     public void deleteAllDirectorsFromDB()
