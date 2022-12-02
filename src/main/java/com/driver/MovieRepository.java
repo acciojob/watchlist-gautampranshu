@@ -54,6 +54,7 @@ public class MovieRepository {
     }
     public void pairToDB(String d , String movie)
     {
+        if(hmUpdate.containsValue(movie)) return; //koi mil gaya ek bar hi dalni hain
         if(hmUpdate.containsKey(d)) hmUpdate.get(d).add(movie);
         else
         {
