@@ -21,14 +21,14 @@ public class MovieRepository {
 //    {
 //        return hmMovie.size();
 //    }
-    void addMovieInDB(Movie m)
+    public void addMovieInDB(Movie m)
     {
        hmMovie.put(m.getName() , m);
     }
     public Movie getMovieByNameFromDB(String x)
     {
        // Movie m = null;
-      // if(hmMovie.containsKey(x))
+       if(hmMovie.containsKey(x))
           return hmMovie.get(x);
 //        for(String str : hmMovie.keySet())
 //        {
@@ -36,19 +36,19 @@ public class MovieRepository {
 //        }
 //        System.out.println(x);
 //        System.out.println(hmMovie.get(x));
-      // return new Movie();
+       return new Movie();
     }
-    void addDirectorInDB(Director d)
+    public void addDirectorInDB(Director d)
     {
         hmDirector.put(d.getName() , d);
     }
-    Director getDirectorByNameFromDB(String x)
+    public Director getDirectorByNameFromDB(String x)
     {
-//        if(hmDirector.containsKey(x))
+       if(hmDirector.containsKey(x))
             return hmDirector.get(x);
-//        return new Director();
+        return new Director();
     }
-    List<String> getAllMoviesFromDB()
+    public List<String> getAllMoviesFromDB()
     {
         List<String> ans = new ArrayList<>();
         for(String str : hmMovie.keySet())
@@ -58,7 +58,7 @@ public class MovieRepository {
         }
         return ans;
     }
-    void pairToDB(String d , String movie)
+    public void pairToDB(String d , String movie)
     {
         if(hmUpdate.containsKey(d)) hmUpdate.get(d).add(movie);
         else
@@ -68,7 +68,7 @@ public class MovieRepository {
             hmUpdate.put(d , temp);
         }
     }
-    List<String> getMoviesByDirectorNameFromDB(String d)
+    public List<String> getMoviesByDirectorNameFromDB(String d)
     {
         List<String> ans = new ArrayList<>();
        if(hmUpdate.containsKey(d)) return hmUpdate.get(d);
@@ -77,7 +77,7 @@ public class MovieRepository {
           //return hmUpdate.get(d);
     }
 
-    void  deleteDirectorByNameFromDB(String d)
+    public void  deleteDirectorByNameFromDB(String d)
     {
         //List<String> res = new ArrayList<>();
         int size = hmUpdate.get(d).size();
@@ -92,7 +92,7 @@ public class MovieRepository {
        if(hmUpdate.containsKey(d)) hmUpdate.remove(d);
     }
 
-    void deleteAllDirectorsFromDB()
+    public void deleteAllDirectorsFromDB()
     {
         List<String> res = new ArrayList<>();
         for(String str: hmUpdate.keySet())
