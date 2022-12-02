@@ -15,11 +15,16 @@ public class MovieRepository {
     private HashMap<String, Director> directorMap;
     private HashMap<String, List<String>> directorMovieMapping;
 
-    public MovieRepository() {
-        this.movieMap = new HashMap<String , Movie>();
-        this.directorMap = new HashMap<String , Director>();
-        this.directorMovieMapping = new HashMap<String , List<String>>();
-    }
+//    public MovieRepository() {
+//        this.movieMap = new HashMap<String , Movie>();
+//        this.directorMap = new HashMap<String , Director>();
+//        this.directorMovieMapping = new HashMap<String , List<String>>();
+//    }
+    public MovieRepository(){
+        this.movieMap = new HashMap<String, Movie>();
+        this.directorMap = new HashMap<String, Director>();
+        this.directorMovieMapping = new HashMap<String, List<String>>();
+     }
 
     //    int theSize()
 //    {
