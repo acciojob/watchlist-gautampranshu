@@ -7,16 +7,18 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    public Map<String , Movie> movieMap = new HashMap<>();
-    public Map<String , Director> directorMap = new HashMap<>();
+    public Map<String , Movie> movieMap;
+    public Map<String , Director> directorMap;
 
-    public Map<String , List<String>> directorMovieMapping = new HashMap<>();
+    public Map<String , List<String>> directorMovieMapping;
 
-    public MovieRepository()
-    {
-
+    public MovieRepository() {
+        this.movieMap = new HashMap<String , Movie>();
+        this.directorMap = new HashMap<String , Director>();
+        this.directorMovieMapping = new HashMap<String , List<String>>();
     }
-//    int theSize()
+
+    //    int theSize()
 //    {
 //        return hmMovie.size();
 //    }
