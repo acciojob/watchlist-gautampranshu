@@ -12,7 +12,10 @@ public class MovieRepository {
 
     public Map<String , List<String>> directorMovieMapping = new HashMap<>();
 
+    public MovieRepository()
+    {
 
+    }
 //    int theSize()
 //    {
 //        return hmMovie.size();
