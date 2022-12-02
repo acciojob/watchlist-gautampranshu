@@ -201,22 +201,38 @@ private HashMap<String, Movie> movieMap;
     }
 
     public void deleteAllDirector(){
-        HashSet<String> moviesSet = new HashSet<String>();
-
-        //directorMap = new HashMap<>();
-
-        for(String director: directorMovieMapping.keySet()){
-            for(String movie: directorMovieMapping.get(director)){
-                moviesSet.add(movie);
-            }
+//        HashSet<String> moviesSet = new HashSet<String>();
+//
+//        //directorMap = new HashMap<>();
+//
+//        for(String director: directorMovieMapping.keySet()){
+//            for(String movie: directorMovieMapping.get(director)){
+//                moviesSet.add(movie);
+//            }
+//        }
+//
+//        for(String movie: moviesSet){
+//            if(movieMap.containsKey(movie)){
+//                movieMap.remove(movie);
+//            }
+//        }
+//        directorMap.clear();
+//        directorMovieMapping.clear();
+        List<String> res = new ArrayList<>();
+        for(String str: directorMovieMapping.keySet())
+        {
+            int size = directorMovieMapping.get(str).size();
+            for(int i = 0; i<size; i++)
+                res.add(directorMovieMapping.get(str).get(i));
         }
+        //res me sari movies sab directors ki add hogayi
 
-        for(String movie: moviesSet){
-            if(movieMap.containsKey(movie)){
-                movieMap.remove(movie);
-            }
-        }
         directorMap.clear();
         directorMovieMapping.clear();
+       int len = res.size();
+       for(int i=0; i<len; i++)
+       {
+           if(movieMap.containsKey(res.get(i))) movieMap.remove(res.get(i));
+       }
     }
 }
