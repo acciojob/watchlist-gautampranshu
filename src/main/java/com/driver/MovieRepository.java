@@ -8,10 +8,19 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    Map<String , Movie> hmMovie = new HashMap<>();
-    Map<String , Director> hmDirector = new HashMap<>();
+//    Map<String , Movie> hmMovie = new HashMap<>();
+//    Map<String , Director> hmDirector = new HashMap<>();
+//
+//    Map<String , List<String>> hmUpdate = new HashMap<>();
+private HashMap<String, Movie> hmMovie;
+    private HashMap<String, Director> hmDirector;
+    private HashMap<String, List<String>> hmUpdate;
 
-    Map<String , List<String>> hmUpdate = new HashMap<>();
+    public MovieRepository(){
+        this.hmMovie = new HashMap<String, Movie>();
+        this.hmDirector = new HashMap<String, Director>();
+        this.hmUpdate = new HashMap<String, List<String>>();
+    }
 
 
 //    int theSize()
