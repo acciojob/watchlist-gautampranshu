@@ -28,9 +28,9 @@ public class MovieRepository {
     public Movie getMovieByNameFromDB(String x)
     {
        // Movie m = null;
-     //  if(hmMovie.containsKey(x))
+      if(hmMovie.containsKey(x))
           return hmMovie.get(x);
-     //  return new Movie();
+       return new Movie();
     }
     public void addDirectorInDB(Director d)
     {
@@ -38,9 +38,9 @@ public class MovieRepository {
     }
     public Director getDirectorByNameFromDB(String x)
     {
-       //if(hmDirector.containsKey(x))
+       if(hmDirector.containsKey(x))
             return hmDirector.get(x);
-        //return new Director();
+        return new Director();
     }
     public List<String> getAllMoviesFromDB()
     {
