@@ -74,7 +74,8 @@ public class MovieRepository {
     public void  deleteDirectorByNameFromDB(String d)
     {
         //List<String> res = new ArrayList<>();
-        if(hmUpdate.containsKey(d)) int size = hmUpdate.get(d).size();
+        int size = 0;
+        if(hmUpdate.containsKey(d)) size = hmUpdate.get(d).size();
         //System.out.println(size);
         for(int i = 0; i<size; i++)
         {
