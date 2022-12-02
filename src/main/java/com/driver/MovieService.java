@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Component
+
 public class MovieService {
     @Autowired
     MovieRepository movieRepository;

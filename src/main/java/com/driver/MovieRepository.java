@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Component
+
 @Repository
 public class MovieRepository {
     Map<String , Movie> hmMovie = new HashMap<>();
