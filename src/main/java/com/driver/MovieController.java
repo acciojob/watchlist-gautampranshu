@@ -44,7 +44,7 @@ public class MovieController {
         return new ResponseEntity(movieService.getDirectorByNameFromService(x) , HttpStatus.ACCEPTED);
     }
     @GetMapping("/movies/get-all-movies")
-    public ResponseEntity<List<String>> findAllMovies()
+    public ResponseEntity<List<Movie>> findAllMovies()
     {
         return new ResponseEntity(movieService.getAllMoviesFromRepo() , HttpStatus.ACCEPTED);
     }
