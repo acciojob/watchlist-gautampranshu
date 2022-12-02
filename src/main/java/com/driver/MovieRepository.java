@@ -84,12 +84,12 @@ public class MovieRepository {
         //System.out.println(size);
         for(int i = 0; i<size; i++)
         {
-            hmMovie.remove(hmUpdate.get(d).get(i));
+           if(hmMovie.containsKey(hmUpdate.get(d).get(i))) hmMovie.remove(hmUpdate.get(d).get(i));
             //res.add(hmUpdate.get(d).get(i)); // res me sari movies us director ki add ho gayi
             //System.out.print(ans.get(i) + " ");
         }
-        hmDirector.remove(d);
-        hmUpdate.remove(d);
+       if(hmDirector.containsKey(d)) hmDirector.remove(d);
+       if(hmUpdate.containsKey(d)) hmUpdate.remove(d);
     }
 
     void deleteAllDirectorsFromDB()
@@ -108,7 +108,7 @@ public class MovieRepository {
        int len = res.size();
        for(int i=0; i<len; i++)
        {
-           hmMovie.remove(res.get(i));
+           if(hmMovie.containsKey(res.get(i))) hmMovie.remove(res.get(i));
        }
     }
 }
