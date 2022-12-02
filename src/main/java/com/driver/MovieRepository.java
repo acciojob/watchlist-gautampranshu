@@ -8,10 +8,10 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    Map<String , Movie> hmMovie = new HashMap<>();
-    Map<String , Director> hmDirector = new HashMap<>();
+    Map<String , Movie> hmMovie = new HashMap<String , Movie>();
+    Map<String , Director> hmDirector = new HashMap<String , Director>();
 
-    Map<String , List<String>> hmMapping = new HashMap<>();
+    Map<String , List<String>> hmMapping = new HashMap<String , List<String>>();
 
 
 //    int theSize()
