@@ -161,9 +161,9 @@ private HashMap<String, Movie> movieMap;
     }
 
     public List<String> findAllMovies(){
-       // return new ArrayList<>(movieMap.keySet());
+      //  return new ArrayList<>(movieMap.keySet());
         List<String> ans = new ArrayList<>();
-        for(String str : directorMovieMapping.keySet())
+        for(String str : movieMap.keySet())
         {
             //ans.add(hmMovie.get(str));
             ans.add(str);
