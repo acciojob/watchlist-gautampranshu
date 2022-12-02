@@ -161,7 +161,14 @@ private HashMap<String, Movie> movieMap;
     }
 
     public List<String> findAllMovies(){
-        return new ArrayList<>(movieMap.keySet());
+       // return new ArrayList<>(movieMap.keySet());
+        List<String> ans = new ArrayList<>();
+        for(String str : directorMovieMapping.keySet())
+        {
+            //ans.add(hmMovie.get(str));
+            ans.add(str);
+        }
+        return ans;
     }
 
     public void deleteDirector(String director){
