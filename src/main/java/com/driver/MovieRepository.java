@@ -3,10 +3,7 @@ package com.driver;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 @Repository
@@ -110,21 +107,38 @@ public class MovieRepository {
 
     public void deleteAllDirectorsFromDB()
     {
-        List<String> res = new ArrayList<>();
-        for(String str: hmUpdate.keySet())
-        {
-            int size = hmUpdate.get(str).size();
-            for(int i = 0; i<size; i++)
-                res.add(hmUpdate.get(str).get(i));
-        }
-        //res me sari movies sab directors ki add hogayi
+//        List<String> res = new ArrayList<>();
+//        for(String str: hmUpdate.keySet())
+//        {
+//            int size = hmUpdate.get(str).size();
+//            for(int i = 0; i<size; i++)
+//                res.add(hmUpdate.get(str).get(i));
+//        }
+//        //res me sari movies sab directors ki add hogayi
+//
+//        hmDirector.clear();
+//        hmUpdate.clear();
+//       int len = res.size();
+//       for(int i=0; i<len; i++)
+//       {
+//           if(hmMovie.containsKey(res.get(i))) hmMovie.remove(res.get(i));
+//       }
+        HashSet<String> moviesSet = new HashSet<String>();
 
+        //directorMap = new HashMap<>();
+
+        for(String director: hmUpdate.keySet()){
+            for(String movie: hmUpdate.get(director)){
+                moviesSet.add(movie);
+            }
+        }
+
+        for(String movie: moviesSet){
+            if(hmMovie.containsKey(movie)){
+                hmMovie.remove(movie);
+            }
+        }
         hmDirector.clear();
         hmUpdate.clear();
-       int len = res.size();
-       for(int i=0; i<len; i++)
-       {
-           if(hmMovie.containsKey(res.get(i))) hmMovie.remove(res.get(i));
-       }
     }
 }
