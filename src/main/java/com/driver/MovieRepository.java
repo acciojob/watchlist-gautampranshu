@@ -172,21 +172,32 @@ private HashMap<String, Movie> movieMap;
     }
 
     public void deleteDirector(String director){
-        List<String> movies = new ArrayList<String>();
-        if(directorMovieMapping.containsKey(director)){
-            movies = directorMovieMapping.get(director);
-            for(String movie: movies){
-                if(movieMap.containsKey(movie)){
-                    movieMap.remove(movie);
-                }
-            }
-
-            directorMovieMapping.remove(director);
+//        List<String> movies = new ArrayList<String>();
+//        if(directorMovieMapping.containsKey(director)){
+//            movies = directorMovieMapping.get(director);
+//            for(String movie: movies){
+//                if(movieMap.containsKey(movie)){
+//                    movieMap.remove(movie);
+//                }
+//            }
+//
+//            directorMovieMapping.remove(director);
+//        }
+//
+//        if(directorMap.containsKey(director)){
+//            directorMap.remove(director);
+//        }
+        int size = 0;
+        if(directorMovieMapping.containsKey(director)) size = directorMovieMapping.get(director).size();
+        //System.out.println(size);
+        for(int i = 0; i<size; i++)
+        {
+           if(movieMap.containsKey(directorMovieMapping.get(director).get(i))) movieMap.remove(directorMovieMapping.get(director).get(i));
+            //res.add(hmUpdate.get(d).get(i)); // res me sari movies us director ki add ho gayi
+            //System.out.print(ans.get(i) + " ");
         }
-
-        if(directorMap.containsKey(director)){
-            directorMap.remove(director);
-        }
+       if(directorMap.containsKey(director)) directorMap.remove(director);
+       if(directorMovieMapping.containsKey(director)) directorMovieMapping.remove(director);
     }
 
     public void deleteAllDirector(){
