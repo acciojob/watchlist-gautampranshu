@@ -1,6 +1,5 @@
 package com.driver;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -8,10 +7,10 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    Map<String , Movie> hmMovie = new HashMap<String , Movie>();
-    Map<String , Director> hmDirector = new HashMap<String , Director>();
+    Map<String , Movie> movieMap = new HashMap<>();
+    Map<String , Director> directorMap = new HashMap<>();
 
-    Map<String , List<String>> hmMapping = new HashMap<String , List<String>>();
+    Map<String , List<String>> directorMovieMapping = new HashMap<>();
 
 
 //    int theSize()
@@ -20,24 +19,24 @@ public class MovieRepository {
 //    }
     public void saveMovie(Movie m)
     {
-       hmMovie.put(m.getName() , m);
+       movieMap.put(m.getName() , m);
     }
     public Movie findMovie(String x)
     {
-        return hmMovie.get(x);
+        return movieMap.get(x);
     }
     public void saveDirector(Director d)
     {
-        hmDirector.put(d.getName() , d);
+        directorMap.put(d.getName() , d);
     }
     public Director findDirector(String x)
     {
-            return hmDirector.get(x);
+            return directorMap.get(x);
     }
     public List<String> findAllMovies()
     {
         List<String> ans = new ArrayList<>();
-        for(String str : hmMovie.keySet())
+        for(String str : movieMap.keySet())
         {
             //ans.add(hmMovie.get(str));
             ans.add(str);
@@ -46,19 +45,19 @@ public class MovieRepository {
     }
     public void saveMovieDirectorPair(String d , String movie)
     {
-        if(hmMapping.containsValue(movie)) return; //koi mil gaya ek bar hi dalni hain
-        if(hmMapping.containsKey(d)) hmMapping.get(d).add(movie);
+        if(directorMovieMapping.containsValue(movie)) return; //koi mil gaya ek bar hi dalni hain
+        if(directorMovieMapping.containsKey(d)) directorMovieMapping.get(d).add(movie);
         else
         {
             ArrayList<String> temp = new ArrayList<>();
             temp.add(movie);
-            hmMapping.put(d , temp);
+            directorMovieMapping.put(d , temp);
         }
     }
     public List<String> findMoviesFromDirector(String d)
     {
         List<String> ans = new ArrayList<>();
-       if(hmMapping.containsKey(d)) return hmMapping.get(d);
+       if(directorMovieMapping.containsKey(d)) return directorMovieMapping.get(d);
        //return new ArrayList<>();
         return ans;
           //return hmUpdate.get(d);
@@ -68,36 +67,36 @@ public class MovieRepository {
     {
         //List<String> res = new ArrayList<>();
         int size = 0;
-        if(hmMapping.containsKey(d)) size = hmMapping.get(d).size();
+        if(directorMovieMapping.containsKey(d)) size = directorMovieMapping.get(d).size();
         //System.out.println(size);
         for(int i = 0; i<size; i++)
         {
-           if(hmMovie.containsKey(hmMapping.get(d).get(i))) hmMovie.remove(hmMapping.get(d).get(i));
+           if(movieMap.containsKey(directorMovieMapping.get(d).get(i))) movieMap.remove(directorMovieMapping.get(d).get(i));
             //res.add(hmUpdate.get(d).get(i)); // res me sari movies us director ki add ho gayi
             //System.out.print(ans.get(i) + " ");
         }
-       if(hmDirector.containsKey(d)) hmDirector.remove(d);
-       if(hmMapping.containsKey(d)) hmMapping.remove(d);
+       if(directorMap.containsKey(d)) directorMap.remove(d);
+       if(directorMovieMapping.containsKey(d)) directorMovieMapping.remove(d);
 
     }
 
     public void deleteAllDirector()
     {
         List<String> res = new ArrayList<>();
-        for(String str: hmMapping.keySet())
+        for(String str: directorMovieMapping.keySet())
         {
-            int size = hmMapping.get(str).size();
+            int size = directorMovieMapping.get(str).size();
             for(int i = 0; i<size; i++)
-                res.add(hmMapping.get(str).get(i));
+                res.add(directorMovieMapping.get(str).get(i));
         }
         //res me sari movies sab directors ki add hogayi
 
-        hmDirector.clear();
-        hmMapping.clear();
+        directorMap.clear();
+        directorMovieMapping.clear();
        int len = res.size();
        for(int i=0; i<len; i++)
        {
-           if(hmMovie.containsKey(res.get(i))) hmMovie.remove(res.get(i));
+           if(movieMap.containsKey(res.get(i))) movieMap.remove(res.get(i));
        }
     }
 //private HashMap<String, Movie> movieMap;
