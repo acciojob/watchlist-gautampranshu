@@ -54,14 +54,18 @@ public class MovieRepository {
     }
     public void pairToDB(String d , String movie)
     {
-        if(hmUpdate.containsValue(movie)) return; //koi mil gaya ek bar hi dalni hain
-        if(hmUpdate.containsKey(d)) hmUpdate.get(d).add(movie);
-        else
-        {
-            ArrayList<String> temp = new ArrayList<>();
-            temp.add(movie);
-            hmUpdate.put(d , temp);
-        }
+//        if(hmUpdate.containsValue(movie)) return; //koi mil gaya ek bar hi dalni hain
+//        if(hmUpdate.containsKey(d)) hmUpdate.get(d).add(movie);
+//        else
+//        {
+//            ArrayList<String> temp = new ArrayList<>();
+//            temp.add(movie);
+//            hmUpdate.put(d , temp);
+//        }
+        List<String> temp = new ArrayList<String>();
+        if(hmUpdate.containsKey(d)) temp = hmUpdate.get(d);
+        temp.add(movie);
+        hmUpdate.put(d, temp);
     }
     public List<String> getMoviesByDirectorNameFromDB(String d)
     {
