@@ -7,10 +7,10 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    public Map<String , Movie> movieMap;
-    public Map<String , Director> directorMap;
+    private Map<String , Movie> movieMap;
+    private Map<String , Director> directorMap;
 
-    public Map<String , List<String>> directorMovieMapping;
+    private Map<String , List<String>> directorMovieMapping;
 
     public MovieRepository() {
         this.movieMap = new HashMap<String , Movie>();
