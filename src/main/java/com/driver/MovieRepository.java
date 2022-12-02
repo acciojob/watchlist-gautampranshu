@@ -70,8 +70,11 @@ public class MovieRepository {
     }
     List<String> getMoviesByDirectorNameFromDB(String d)
     {
-        if(hmUpdate.containsKey(d)) return hmUpdate.get(d);
-        return new ArrayList<>();
+        List<String> ans = new ArrayList<>();
+       if(hmUpdate.containsKey(d)) return hmUpdate.get(d);
+       //return new ArrayList<>();
+        return ans;
+          //return hmUpdate.get(d);
     }
 
     void  deleteDirectorByNameFromDB(String d)
@@ -86,6 +89,7 @@ public class MovieRepository {
             //System.out.print(ans.get(i) + " ");
         }
         hmDirector.remove(d);
+        hmUpdate.remove(d);
     }
 
     void deleteAllDirectorsFromDB()
@@ -100,6 +104,7 @@ public class MovieRepository {
         //res me sari movies sab directors ki add hogayi
 
         hmDirector.clear();
+        hmUpdate.clear();
        int len = res.size();
        for(int i=0; i<len; i++)
        {
