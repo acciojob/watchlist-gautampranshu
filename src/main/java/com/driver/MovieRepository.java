@@ -63,7 +63,7 @@ public class MovieRepository {
 //    public List<String> findMoviesFromDirector(String d)
 //    {
 //        List<String> ans = new ArrayList<>();
-//       if(hmUpdate.containsKey(d)) ans = hmUpdate.get(d);
+//       if(hmUpdate.containsKey(d)) return hmUpdate.get(d);
 //       //return new ArrayList<>();
 //        return ans;
 //          //return hmUpdate.get(d);
@@ -142,16 +142,22 @@ private HashMap<String, Movie> movieMap;
 
     public Movie findMovie(String movie){
         return movieMap.get(movie);
+        //return hmMovie.get(x);
     }
 
     public Director findDirector(String director){
         return directorMap.get(director);
+        //return hmDirector.get(x);
     }
 
     public List<String> findMoviesFromDirector(String director){
-        List<String> moviesList = new ArrayList<String>();
-        if(directorMovieMapping.containsKey(director)) moviesList = directorMovieMapping.get(director);
-        return moviesList;
+//        List<String> moviesList = new ArrayList<String>();
+//        if(directorMovieMapping.containsKey(director)) moviesList = directorMovieMapping.get(director);
+//        return moviesList;
+        List<String> ans = new ArrayList<>();
+       if(directorMovieMapping.containsKey(director)) return directorMovieMapping.get(director);
+       //return new ArrayList<>();
+        return ans;
     }
 
     public List<String> findAllMovies(){
